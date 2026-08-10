@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 import AnimatedText from './AnimatedText'
-import { ABOUT_ICONS, ABOUT_TEXT } from '../data'
+import { ABOUT_ICONS, ABOUT_PARAGRAPHS } from '../data'
 
 const EASE = [0.25, 0.1, 0.25, 1] as const
 
-// 关于我：四角悬浮小图从 x 轴淡入 + 逐字揭示正文（仅一段）
+// 关于我：四角悬浮小图从 x 轴淡入 + 逐字揭示正文（分两段）
 export default function About() {
   return (
     <section
@@ -44,10 +44,15 @@ export default function About() {
           About Me
         </h2>
 
-        <AnimatedText
-          text={ABOUT_TEXT}
-          className="max-w-3xl justify-center text-center font-medium leading-relaxed text-cherry"
-        />
+        <div className="flex max-w-3xl flex-col gap-6">
+          {ABOUT_PARAGRAPHS.map((p, i) => (
+            <AnimatedText
+              key={i}
+              text={p}
+              className="justify-center text-center font-medium leading-relaxed text-cherry"
+            />
+          ))}
+        </div>
       </div>
     </section>
   )

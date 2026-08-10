@@ -30,7 +30,7 @@ export default function Marquee() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 -mt-14 rounded-t-[60px] bg-roseblack py-20 md:py-28"
+      className="relative z-[45] -mt-14 rounded-t-[60px] bg-roseblack py-20 md:py-28"
     >
       <div className="mb-12 px-6 md:px-12">
         <span className="text-xs font-medium uppercase tracking-[0.3em] text-[#FFB3D9]">

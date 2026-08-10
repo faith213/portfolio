@@ -11,10 +11,10 @@ export default function App() {
     <main className="relative bg-cream">
       <Navbar />
       <Hero />
-      <Marquee />
       <About />
       <Education />
       <Projects />
+      <Marquee />
       <Footer />
     </main>
   )
