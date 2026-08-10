@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  /* 全站防止 marquee 横向溢出 */
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  background-color: #fff3f5; /* 奶油粉 */
+  color: #3a1a2f; /* 深樱桃酒红 */
+  font-family: 'Kanit', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@layer components {
+  /* 糖霜金属渐变大标题：樱花粉 → 婴儿粉 → 浅薰衣草紫 */
+  .text-frosted {
+    background-image: linear-gradient(
+      180deg,
+      #ffd1dc 0%,
+      #f8bbd0 50%,
+      #e1bee7 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* 主 CTA：粉嫩四段渐变胶囊 */
+  .btn-candy {
+    background-image: linear-gradient(
+      123deg,
+      #ffb3d9 7%,
+      #ff6ec7 37%,
+      #c77dff 72%,
+      #ffd6a5 100%
+    );
+    box-shadow:
+      4px 4px 12px #ff6ec7 inset,
+      0 4px 12px rgba(255, 110, 199, 0.35);
+    position: relative;
+  }
+  .btn-candy::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border: 2px solid #ffffff;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  /* 描边幽灵按钮 */
+  .btn-ghost {
+    border: 2px solid #c77dff;
+    color: #c77dff;
+    background-color: transparent;
+    transition: background-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .btn-ghost:hover {
+    background-color: rgba(199, 125, 255, 0.1);
+  }
+
+  /* 分隔线 */
+  .rule {
+    border-color: rgba(58, 26, 47, 0.15);
+  }
+}
+
+/* 隐藏滚动条但保留滚动能力（marquee 行） */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Education 相册自动横向滚动 */
+@keyframes edu-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.edu-track {
+  animation: edu-scroll linear infinite;
+  width: max-content;
+}
+.edu-track:hover {
+  animation-play-state: paused;
+}
