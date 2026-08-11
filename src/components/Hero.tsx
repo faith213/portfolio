@@ -3,6 +3,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { ArrowUpRight, Download, ChevronDown } from 'lucide-react'
 import { HERO_CHARACTER, HERO_ROLE, RESUME_URL, EMAIL } from '../data'
 import ContactModal from './ContactModal'
+import DepthText from './DepthText'
 
 const EASE = [0.25, 0.1, 0.25, 1] as const
 
@@ -57,16 +58,29 @@ export default function Hero() {
 
       {/* 主标题区，整体上移 */}
       <div className="z-10 flex w-full max-w-6xl flex-col items-start">
+        {/* 主标题：3D 景深文字，随鼠标倾斜 */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: EASE, delay: 0.15 }}
-          className="text-frosted pointer-events-none text-left font-black uppercase leading-[0.82] tracking-tight"
-          style={{ fontSize: 'clamp(13vw, 14vw, 16vw)' }}
+          className="text-left font-black uppercase leading-[0.82] tracking-tight"
         >
-          HI! I'M
-          <br />
-          XIAGELING
+          <DepthText
+            text="HI! I'M"
+            faceColor="#ffe1ec"
+            depthColor="#c77dff"
+            fontSize="clamp(10vw, 11vw, 12vw)"
+            fontWeight={900}
+            className="mb-3 block md:mb-5"
+          />
+          <DepthText
+            text="XIAGELING"
+            faceColor="#ffe1ec"
+            depthColor="#ff6ec7"
+            fontSize="clamp(10vw, 11vw, 12vw)"
+            fontWeight={900}
+            className="block"
+          />
         </motion.h1>
 
         {/* 职位 */}
