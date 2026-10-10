@@ -9,6 +9,7 @@ export const NAV = [
   { label: 'ABOUT', href: '#about' },
   { label: 'EDUCATION', href: '#education' },
   { label: 'EXPERIENCE', href: '#projects' },
+  { label: 'PROJECT', href: '#project' },
   { label: 'CONTACT', href: '#contact' },
 ]
 
@@ -40,20 +41,12 @@ export const ABOUT_PARAGRAPHS = [
   '爱好涉猎广泛，攀岩、游泳、户外、徒步，喜欢社交与拓展自己的生活边界。',
 ]
 
-// 教育背景（时间来自个人简历），每段自带相册（滚轮横向滑动）
-export type MediaItem = {
-  type: 'image' | 'video'
-  src: string
-  poster?: string // 视频封面
-  story?: string // 照片背面的拍摄故事 / 回忆（点击照片可翻面查看）
-}
-
+// 教育背景（时间来自个人简历），纯文字呈现
 export type Edu = {
   year: string
   school: string
   degree: string
   note: string
-  gallery: MediaItem[]
 }
 
 const EDUCATION_RAW: Edu[] = [
@@ -62,89 +55,12 @@ const EDUCATION_RAW: Edu[] = [
     school: '上海财经大学',
     degree: '应用统计 · 硕士（211）',
     note: '绩点 3.3/4（前 30%）。荣誉奖项：学业奖学金、奖优奖学金、院优秀团员。',
-    gallery: [
-      { type: 'video', src: '/edu/grad/video.mp4' },
-      {
-        type: 'image',
-        src: '/edu/grad/g1.jpg',
-        story:
-          '拍摄于 2025 年 12 月 31 日 · 上海字节跳动\n\n和研究生朋友一起在楼下打卡公司的新年活动，并拍摄下了照片，祝愿自己 2026 年一切顺利，越来越幸福。',
-      },
-      {
-        type: 'image',
-        src: '/edu/grad/g2.jpg',
-        story:
-          '拍摄于 2025 年 9 月 20 日 · 上财艺术中心\n\n作为入党积极分子研读党校课程"读延安 向未来——延安精神主题宣讲"，听党话跟党走。',
-      },
-      {
-        type: 'image',
-        src: '/edu/grad/g3.jpg',
-        story:
-          '拍摄于 2026 年 5 月 3 日 · 浙江台州\n\n和朋友五一假期一起自驾游台州，重游四年前曾来社会实践的故地。那几日阳光艳丽，在岸边吹着微风都能感受到自由。',
-      },
-      {
-        type: 'image',
-        src: '/edu/grad/g4.jpg',
-        story:
-          '拍摄于 2026 年 7 月 18 日 · 上海普陀\n\n和朋友相约前往普陀观看中国国家地理·探索"极致发现科学艺术影像展"，感受世界的辽阔和个人的渺小——我总在用更大的世界去稀释自己的痛苦。',
-      },
-      {
-        type: 'image',
-        src: '/edu/grad/g5.jpg',
-        story:
-          '拍摄于 2026 年 4 月 18 日 · 浙江杭州\n\n和朋友一起去杭州周边徒步。杭州真是人杰地灵的一块宝地，短暂的春天让人留念，鲜花簇拥着的世界真美妙啊。',
-      },
-      {
-        type: 'image',
-        src: '/edu/grad/g6.jpg',
-        story:
-          '拍摄于 2026 年 6 月 5 日 · 上海黄浦\n\n周五晚上散步散到苏州河附近，看着对面繁华的陆家嘴，那一瞬间感觉上海永远是上海，不会因为有人离开有人留下就停止散发光芒——那一刻就是很想留在这里。',
-      },
-    ],
   },
   {
     year: '2021.09 — 2025.06',
     school: '苏州大学',
     degree: '统计学 · 本科（211）',
     note: '绩点 3.7/4（前 10%）。荣誉奖项：美赛建模二等奖，学习优秀、创新创业、社会工作奖学金，暑期社会实践"先进个人"。',
-    gallery: [
-      {
-        type: 'image',
-        src: '/edu/undergrad/u1.jpg',
-        story:
-          '拍摄于 2024 年 11 月 · 云南丽江\n\n保研结束后一切的压力都释放了，去云南转了七天，每一天都是彻底的放松和幸福。不用因为焦虑比赛没有准备、考试即将到来而有压力，珍惜这样纯粹的时刻。',
-      },
-      {
-        type: 'image',
-        src: '/edu/undergrad/u2.jpg',
-        story:
-          '拍摄于 2025 年 6 月 · 江苏苏州\n\n又一个夏天来临了，我的大学时光要结束了。夏天总是分离的季节——高考、毕业、上班、搬家，所有重要的事都停留在夏天。那就祝愿我的朋友们永远都不要忘记夏天！',
-      },
-      {
-        type: 'image',
-        src: '/edu/undergrad/u3.jpg',
-        story:
-          '拍摄于 2023 年 6 月 · 江苏苏州\n\n那一学期上了健身操体育课，在夏季晚会上，我们班一起表演了一段健美操。现在想想也是很怀念那个时候的时光，没有那么多烦忧的大学生活。',
-      },
-      {
-        type: 'image',
-        src: '/edu/undergrad/u4.jpg',
-        story:
-          '拍摄于 2022 年 7 月 · 浙江台州\n\n第一次在大学里自己组织负责社会实践，前往温岭采访非遗传承人。海鲜好吃，海风中带着沙子，对一个内陆没见过海的孩子来说，这一切都让人兴奋不已。',
-      },
-      {
-        type: 'image',
-        src: '/edu/undergrad/u6.jpg',
-        story:
-          '拍摄于 2024 年 9 月 · 江苏苏州\n\n给三年的时光圆满地画上了一个句号，苦尽甘来的感觉让人不禁唏嘘感慨。期待未来的新生活，也期待着新的不一样的自己。',
-      },
-      {
-        type: 'image',
-        src: '/edu/undergrad/u7.jpg',
-        story:
-          '拍摄于 2023 年 12 月 · 江苏苏州\n\n那是 23 年的最后一天，和朋友们一起去苏州乐园里跨年。人们常说：人无法拥有青春和对青春的感受，但当我感受的时候，我就知道我仍在青春里。',
-      },
-    ],
   },
 ]
 
@@ -274,8 +190,51 @@ const PROJECTS_RAW: Project[] = [
   },
 ]
 
-// 统一给 EDUCATION / PROJECTS 里的资源路径加 BASE_URL 前缀，
-// 这样列表数据里仍写直观的 '/edu/...' 绝对路径，部署到子路径也不会 404。
+// —— 个人项目展示：拾光 Herda ——
+export type ShowcaseLink = {
+  label: string
+  url: string
+}
+
+export type ProjectShowcaseData = {
+  name: string // 拾光
+  tagline: string // 一句话定位
+  why: string[] // 为什么做这个项目
+  features: string[] // 功能模块（图片注解）
+  image: string // 项目展示图
+  phoneLabels: string[][] // 每台手机上方的功能标注（2行 × 5列）
+  links: ShowcaseLink[] // 项目链接
+}
+
+export const PROJECT_SHOWCASE: ProjectShowcaseData = {
+  name: '拾光·截图手帐本',
+  tagline: 'AI 照片整理 × 手帐创作 App',
+  why: [
+    '手机里的照片越攒越多，想找一段回忆时只能不停地往下翻——我希望 AI 帮我完成「看图、分类、打标签」这些琐碎的事，照片收进来就自动整理好，我什么都不用做。',
+    '我喜欢做手帐，但抠图、找素材、排版都很耗时间。于是把 AI 一键抠图、本地素材库和手帐编辑器做进同一个产品里，让重复劳动交给 AI，把精力留给创意。',
+    '拾光想打通「收集 → 整理 → 创作」的完整闭环：照片不只是被存下来，而是能被重新拾起，做成可以留存、可以分享的手帐作品。',
+  ],
+  features: [
+    'HOME 自动整理',
+    'AI 标签',
+    'AI 搜图',
+    '自动分类收藏',
+    'AI 抠图',
+    '素材库',
+    '手帐制作',
+    '高清导出',
+  ],
+  image: asset('/project/shiguang.png'),
+  phoneLabels: [
+    ['HOME', 'HOME-下拉滑动', '图片标签', 'HOME-AI搜索', 'COLLECT-自动分类'],
+    ['CREATE手帐本', 'CREATE-抠图', 'CREATE-素材库', 'CREATE-制作手帐', 'CREATE-导出'],
+  ],
+  links: [
+    { label: '在线体验', url: 'https://shiguang-sreenshot.netlify.app/app' },
+  ],
+}
+
+// EDUCATION 已是纯文字数据，直接导出。
 export const EDUCATION: Edu[] = EDUCATION_RAW
 
 // 英语水平
