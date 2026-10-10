@@ -61,7 +61,7 @@ const EDUCATION_RAW: Edu[] = [
     year: '2025.09 — 2027.06',
     school: '上海财经大学',
     degree: '应用统计 · 硕士（211）',
-    note: '绩点 3.5/4（前 15%）。荣誉奖项：学业奖学金、奖优奖学金、院优秀团员。',
+    note: '绩点 3.3/4（前 30%）。荣誉奖项：学业奖学金、奖优奖学金、院优秀团员。',
     gallery: [
       { type: 'video', src: '/edu/grad/video.mp4' },
       {
@@ -276,14 +276,14 @@ const PROJECTS_RAW: Project[] = [
 
 // 统一给 EDUCATION / PROJECTS 里的资源路径加 BASE_URL 前缀，
 // 这样列表数据里仍写直观的 '/edu/...' 绝对路径，部署到子路径也不会 404。
-export const EDUCATION: Edu[] = EDUCATION_RAW.map((e) => ({
-  ...e,
-  gallery: e.gallery.map((m) => ({
-    ...m,
-    src: asset(m.src),
-    ...(m.poster ? { poster: asset(m.poster) } : {}),
-  })),
-}))
+export const EDUCATION: Edu[] = EDUCATION_RAW
+
+// 英语水平
+export const ENGLISH: { label: string; score: string }[] = [
+  { label: 'CET-6', score: '540' },
+  { label: 'CET-4', score: '604' },
+  { label: 'IELTS', score: '6.5' },
+]
 
 export const PROJECTS: Project[] = PROJECTS_RAW.map((p) => ({
   ...p,
